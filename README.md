@@ -63,7 +63,7 @@ It is inspired by the ideas of quantum cryptography and combines classical crypt
 | Feature                  | Quantum Cipher | AES-256 | ChaCha20 | Kyber (POSTQUANT.) |
 |--------------------------|----------------|---------|----------|--------------------|
 | Block size               | 512 bit        | 128 bit | 512 bit  | N/A                |
-| Max. Palm key            | 8 Gbit         | 256 bit | 256 bit  | 6144 bit           |
+| Max. key length          | 8 Gbit         | 256 bit | 256 bit  | 6144 bit           |
 | Rounds                   | 16             | 14      | 20       | N/A                |
 | Post-quantum protection  | ✅ LWE         | ❌      | ❌      | ✅                 |
 | Built-up autentification | ✅ built-up    | ❌      | ❌      | ❌                 |
