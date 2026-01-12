@@ -552,8 +552,8 @@ fn encrypt_file(input_path string, output_path string, key QuantumKey) ! {
 		return error('Failed to write a file: ${output_path}')
 	}
 
-	println('   ├─ Encrypted file size: ${output.len} bytes')
-	println('   └─ Saved in: ${output_path}')
+	println('   ├─ Encrypted file size: ${output.len} bytes\n' +
+			'   └─ Saved in: ${output_path}')
 }
 
 // ============================================
@@ -684,8 +684,8 @@ fn decrypt_file(input_path string, output_path string, key QuantumKey) ! {
 		return error('Failed to write a file: ${output_path}')
 	}
 
-	println('   ├─ Restored size: ${plaintext.len} bytes')
-	println('   └─ Saved in: ${output_path}')
+	println('   ├─ Restored size: ${plaintext.len} bytes\n' +
+			'   └─ Saved in: ${output_path}')
 }
 
 // ============================================
@@ -771,8 +771,8 @@ fn load_key(path string) !QuantumKey {
 
 	measurement_bases := data[pos..pos + int(bases_len)].clone()
 
-	println('   ├─ Key length: ${key_length} bytes')
-	println('   ├─ Restoring components...')
+	println('   ├─ Key length: ${key_length} bytes\n' +
+			'   ├─ Restoring components...')
 
 	// Restoring the superposition key
 	mut superposition_key := []u8{cap: int(key_length)}
@@ -828,10 +828,10 @@ fn load_key(path string) !QuantumKey {
 fn main() {
 	args := os.args
 
-	println('╔════════════════════════════════════════════════════╗')
-	println('║     QUANTUM CIPHER v1.0 - The Quantum Encoder      ║')
-	println('║  Post-quantum cryptography based on LWE and BB84   ║')
-	println('╚════════════════════════════════════════════════════╝')
+	println('╔════════════════════════════════════════════════════╗\n' +
+			'║     QUANTUM CIPHER v1.0 - The Quantum Encoder      ║\n' +
+			'║  Post-quantum cryptography based on LWE and BB84   ║\n' +
+			'╚════════════════════════════════════════════════════╝')
 
 	if args.len < 2 {
 		print_usage()
@@ -898,13 +898,13 @@ fn main() {
 				return
 			}
 
-			println('\nInformation about the key:')
-			println('   ├─ Length: ${key.key_length} bytes')
-			println('   ├─ Entanglement Pairs: ${key.entanglement_pairs.len}')
-			println('   ├─ The dimension of the lattice: ${key.lattice_basis.len}')
-			println('   ├─ Measurement bases: ${key.measurement_bases.len}')
-			println('   ├─ Created: ${time.unix(key.created_at)}')
-			println('   └─ Checksum: ${hex.encode(key.checksum[0..16])}...')
+			println('\nInformation about the key:\n' +
+					'   ├─ Length: ${key.key_length} bytes\n' +
+					'   ├─ Entanglement Pairs: ${key.entanglement_pairs.len}\n' +
+					'   ├─ The dimension of the lattice: ${key.lattice_basis.len}\n' +
+					'   ├─ Measurement bases: ${key.measurement_bases.len}\n' +
+					'   ├─ Created: ${time.unix(key.created_at)}\n' +
+					'   └─ Checksum: ${hex.encode(key.checksum[0..16])}...')
 		}
 		else {
 			print_usage()
@@ -913,13 +913,13 @@ fn main() {
 }
 
 fn print_usage() {
-	println('\nUsing:')
-	println('  qcrypt genkey <length> <file.qkey>      Generating a new key')
-	println('  qcrypt encrypt <input> <output> <key>   File encryption')
-	println('  qcrypt decrypt <input> <output> <key>   Decrypting the file')
-	println('  qcrypt info <file.qkey>                 Information about the key')
-	println('\nExamples:')
-	println('  qcrypt genkey 4096 secret.qkey')
-	println('  qcrypt encrypt photo.png photo.qcrypt secret.qkey')
-	println('  qcrypt decrypt photo.qcrypt photo_dec.png secret.qkey')
+	println('\nUsing:\n' +
+			'  qcrypt genkey <length> <file.qkey>      Generating a new key\n' +
+			'  qcrypt encrypt <input> <output> <key>   File encryption\n' +
+			'  qcrypt decrypt <input> <output> <key>   Decrypting the file\n' +
+			'  qcrypt info <file.qkey>                 Information about the key\n' +
+			'\nExamples:\n' +
+			'  qcrypt genkey 4096 secret.qkey\n' +
+			'  qcrypt encrypt photo.png photo.qcrypt secret.qkey\n' +
+			'  qcrypt decrypt photo.qcrypt photo_dec.png secret.qkey')
 }
