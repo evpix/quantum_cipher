@@ -1,4 +1,4 @@
-# Quantum Cipher ![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat) ![vlang](http://img.shields.io/badge/V-0.4.12-%236d8fc5?style=flat)
+# Quantum Cipher ![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat) ![vlang](http://img.shields.io/badge/V-0.5-%236d8fc5?style=flat)
 
 **Quantum Cipher** is a symmetric cipher written in the V programming language.
 
